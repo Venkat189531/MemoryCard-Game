@@ -6,8 +6,6 @@ const winModal = document.getElementById('win-modal');
 const finalTimeDisplay = document.getElementById('final-time');
 const finalMovesDisplay = document.getElementById('final-moves');
 const playAgainBtn = document.getElementById('play-again-btn');
-
-// Game State
 let cards = [];
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -16,12 +14,10 @@ let moves = 0;
 let time = 0;
 let timerInterval;
 let matchedPairs = 0;
-
-// Card Data (Emojis)
+//taken from google
 const items = ['🚀', '🌟', '🎮', '🎨', '🎵', '🍕', '🐱', '🌈'];
 
 function initGame() {
-    // Reset State
     moves = 0;
     time = 0;
     matchedPairs = 0;
@@ -29,26 +25,18 @@ function initGame() {
     lockBoard = false;
     firstCard = null;
     secondCard = null;
-    
-    // Update UI
+
     movesDisplay.textContent = moves;
     timeDisplay.textContent = '00:00';
     winModal.classList.add('hidden');
     clearInterval(timerInterval);
-    
-    // Create and Shuffle Cards
-    // Duplicate items to create pairs
     const deck = [...items, ...items];
     shuffle(deck);
-    
-    // Render Board
     gameBoard.innerHTML = '';
     deck.forEach(item => {
         const card = createCard(item);
         gameBoard.appendChild(card);
     });
-
-    // Start Timer
     startTimer();
 }
 
@@ -85,13 +73,10 @@ function flipCard() {
     this.classList.add('flipped');
 
     if (!hasFlippedCard) {
-        // First click
         hasFlippedCard = true;
         firstCard = this;
         return;
     }
-
-    // Second click
     secondCard = this;
     checkForMatch();
 }
@@ -136,7 +121,6 @@ function incrementMoves() {
 }
 
 function startTimer() {
-    // Clear existing timer if any to prevent duplicates
     if (timerInterval) clearInterval(timerInterval);
     
     const startTime = Date.now();
@@ -158,9 +142,9 @@ function endGame() {
     }, 500);
 }
 
-// Event Listeners
 newGameBtn.addEventListener('click', initGame);
 playAgainBtn.addEventListener('click', initGame);
 
 // Start game on load
 initGame();
+
