@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Card Game | Premium</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <header class="glass-header">
+        <h1>Memory Game</h1>
+        <button id="new-game-btn" class="btn-primary">New Game</button>
+    </header>
+
+    <section class="stats-container">
+        <div class="stat-card">
+            <span class="stat-label">Moves</span>
+            <span id="moves-count" class="stat-value">0</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Time</span>
+            <span id="time-display" class="stat-value">00:00</span>
+        </div>
+    </section>
+
+    <main class="game-board" id="game-board">
+        <!-- Cards will be generated here by JavaScript -->
+    </main>
+
+    <div id="win-modal" class="modal hidden">
+        <div class="modal-content glass-card">
+            <h2>Congratulations! 🎉</h2>
+            <p>You solved the puzzle!</p>
+            <div class="modal-stats">
+                <p>Time: <span id="final-time">00:00</span></p>
+                <p>Moves: <span id="final-moves">0</span></p>
+            </div>
+            <button id="play-again-btn" class="btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
